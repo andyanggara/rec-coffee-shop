@@ -63,10 +63,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr role="row" class="odd">
+                                        <tr role="row" class="odd">
                                                 <td style="text-align: center">1</td>
-                                                <td class="sorting_1">Airi Satou</td>
-                                                <td>Tokyo</td>
+                                                <td class="sorting_1">Shareloc Coffee</td>
+                                                <td>Jl. Terusan Punclut No. 98 Ciumbuleuit Bandung</td>
                                                 <td>$162,700</td>
                                                 <td>33</td>
                                                 <td style="text-align: center">
@@ -76,8 +76,8 @@
                                             </tr>
                                             <tr role="row" class="even">
                                                 <td style="text-align: center">2</td>
-                                                <td class="sorting_1">Angelica Ramos</td>
-                                                <td>London</td>
+                                                <td class="sorting_1">Kopi Toko Djawa</td>
+                                                <td>Jl. Braga No. 79 Bandung</td>
                                                 <td>$1,200,000</td>
                                                 <td>47</td>
                                                 <td style="text-align: center">
@@ -87,8 +87,8 @@
                                             </tr>
                                             <tr role="row" class="odd">
                                                 <td style="text-align: center">3</td>
-                                                <td class="sorting_1">Ashton Cox</td>
-                                                <td>San Francisco</td>
+                                                <td class="sorting_1">5758 Coffee Lab</td>
+                                                <td>Jl. Rusa Pinus Raya Blok E No. 1D Bandung</td>
                                                 <td>$86,000</td>
                                                 <td>66</td>
                                                 <td style="text-align: center">
@@ -98,8 +98,8 @@
                                             </tr>
                                             <tr role="row" class="even">
                                                 <td style="text-align: center">4</td>
-                                                <td class="sorting_1">Bradley Greer</td>
-                                                <td>London</td>
+                                                <td class="sorting_1">Ssst Coffee</td>
+                                                <td>Jl. Kliningan II No. 1 Bandung</td>
                                                 <td>$132,000</td>
                                                 <td>41</td>
                                                 <td style="text-align: center">
@@ -109,8 +109,8 @@
                                             </tr>
                                             <tr role="row" class="odd">
                                                 <td style="text-align: center">5</td>
-                                                <td class="sorting_1">Brenden Wagner</td>
-                                                <td>San Francisco</td>
+                                                <td class="sorting_1">Custom Coffee Garage</td>
+                                                <td>Jl. Aceh No. 24A</td>
                                                 <td>$206,850</td>
                                                 <td>28</td>
                                                 <td style="text-align: center">
@@ -120,8 +120,8 @@
                                             </tr>
                                             <tr role="row" class="even">
                                                 <td style="text-align: center">6</td>
-                                                <td class="sorting_1">Brielle Williamson</td>
-                                                <td>New York</td>
+                                                <td class="sorting_1">Sudut Kopi</td>
+                                                <td>Jl. Pendawa No. 2 Pasir Kaliki Bandung</td>
                                                 <td>$372,000</td>
                                                 <td>61</td>
                                                 <td style="text-align: center">
@@ -131,8 +131,8 @@
                                             </tr>
                                             <tr role="row" class="odd">
                                                 <td style="text-align: center">7</td>
-                                                <td class="sorting_1">Bruno Nash</td>
-                                                <td>London</td>
+                                                <td class="sorting_1">Kopi Warga</td>
+                                                <td>Jl. Ir. H. Juanda No. 48 Dago Bawah</td>
                                                 <td>$163,500</td>
                                                 <td>38</td>
                                                 <td style="text-align: center">
@@ -142,8 +142,8 @@
                                             </tr>
                                             <tr role="row" class="even">
                                                 <td style="text-align: center">8</td>
-                                                <td class="sorting_1">Caesar Vance</td>
-                                                <td>New York</td>
+                                                <td class="sorting_1">Mimiti Coffee & Space</td>
+                                                <td>Jl. Sumur Bandung No. 14</td>
                                                 <td>$106,450</td>
                                                 <td>21</td>
                                                 <td style="text-align: center">
@@ -153,8 +153,8 @@
                                             </tr>
                                             <tr role="row" class="odd">
                                                 <td style="text-align: center">9</td>
-                                                <td class="sorting_1">Cara Stevens</td>
-                                                <td>New York</td>
+                                                <td class="sorting_1">Dreezel Coffee</td>
+                                                <td>Jl. Cisangkuy No. 56 Bandung</td>
                                                 <td>$145,600</td>
                                                 <td>46</td>
                                                 <td style="text-align: center">
@@ -164,8 +164,8 @@
                                             </tr>
                                             <tr role="row" class="even">
                                                 <td style="text-align: center">10</td>
-                                                <td class="sorting_1">Cedric Kelly</td>
-                                                <td>Edinburgh</td>
+                                                <td class="sorting_1">Sawo Coffee</td>
+                                                <td>Jl. Braga No. 76 Bandung</td>
                                                 <td>$433,060</td>
                                                 <td>22</td>
                                                 <td style="text-align: center">
