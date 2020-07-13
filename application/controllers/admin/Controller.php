@@ -8,8 +8,8 @@ class Controller extends CI_Controller {
     public function dashboard(){
         $this->load->view('admin/dashboard');
     }
-    public function list_user(){
-        $this->load->view('admin/list_user');
+    public function list_admin(){
+        $this->load->view('admin/list_admin');
     }
     public function data_coffee(){
         $this->load->view('admin/data_coffee');

@@ -6,20 +6,20 @@
                     </div>
 
                     <ul class="list-unstyled components">
-                        <li class="nav-item <?php if ( $this->uri->segment(2) == "dashboard" ) {
-                            echo 'active';
-                            } ?>">
-                            <a href="<?php echo base_url().'index.php/admin/controller/dashboard'; ?>"><i class="fas fa-home"></i> Dashboard</a>
+                        <li class="nav-item <?php if ($this->uri->segment(2) == "dashboard") {
+                                                echo 'active';
+                                            } ?>">
+                            <a href="<?php echo site_url('admin') ?>"><i class="fas fa-home"></i> Dashboard</a>
                         </li>
-                        <li class="nav-item <?php if ( $this->uri->segment(2) == "list_user" ) {
-                            echo 'active';
-                            } ?>">
-                            <a href="<?php echo base_url().'index.php/admin/controller/list_user'; ?>"><i class="fas fa-user"></i> Admin</a>
+                        <li class="nav-item <?php if ($this->uri->segment(2) == "adminlist") {
+                                                echo 'active';
+                                            } ?>">
+                            <a href="<?php echo site_url('adminlist') ?>"><i class="fas fa-user"></i> Admin</a>
                         </li>
-                        <li class="nav-item <?php if ( $this->uri->segment(2) == "data_coffee" ) {
-                            echo 'active';
-                            } ?>">
-                            <a href="<?php echo base_url().'index.php/admin/controller/data_coffee'; ?>"><i class="fas fa-database"></i> Data Coffe Shop</a>
+                        <li class="nav-item <?php if ($this->uri->segment(2) == "coffeeshop") {
+                                                echo 'active';
+                                            } ?>">
+                            <a href="<?php echo site_url('coffeeshop') ?>"><i class="fas fa-database"></i> Data Coffe Shop</a>
                         </li>
                         <li class="nav-item <?php if ( $this->uri->segment(2) == "kriteria" ) {
                             echo 'active';
