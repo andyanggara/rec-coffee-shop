@@ -488,8 +488,8 @@ a[data-toggle="collapse"] {
 
 ul ul a {
 	font-size: 0.9em !important;
-	padding-left: 30px !important;
-	background: #6d7fcc;
+	padding-left: 50px !important;
+	background: #343a40;
 }
 
 ul.CTAs {
