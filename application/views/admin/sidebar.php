@@ -24,7 +24,7 @@
                         <li class="nav-item <?php if ( $this->uri->segment(2) == "kriteria" ) {
                             echo 'active';
                             } ?>">
-                            <a href="#"><i class="fas fa-list-alt"></i> Kriteria</a>
+                            <a href="<?php echo base_url().'index.php/admin/controller/kriteria'; ?>"><i class="fas fa-list-alt"></i> Kriteria</a>
                         </li>
                     </ul>
                 </div>
