@@ -62,3 +62,5 @@ $route['login'] = 'admin/C_login/login';
 $route['adminlist'] = 'admin/C_adminlist';
 
 $route['coffeeshop'] = 'admin/C_coffeeshop';
+
+$route['kriteria'] = 'admin/C_kriteria';

@@ -6,25 +6,25 @@
                     </div>
 
                     <ul class="list-unstyled components">
-                        <li class="nav-item <?php if ($this->uri->segment(2) == "dashboard") {
-                                                echo 'active';
-                                            } ?>">
+                        <li class="nav-item <?php if ($this->uri->segment(1) == "admin") {
+                            echo 'active';
+                        } ?>">
                             <a href="<?php echo site_url('admin') ?>"><i class="fas fa-home"></i> Dashboard</a>
                         </li>
-                        <li class="nav-item <?php if ($this->uri->segment(2) == "adminlist") {
-                                                echo 'active';
-                                            } ?>">
+                        <li class="nav-item <?php if ($this->uri->segment(1) == "adminlist") {
+                            echo 'active';
+                        } ?>">
                             <a href="<?php echo site_url('adminlist') ?>"><i class="fas fa-user"></i> Admin</a>
                         </li>
-                        <li class="nav-item <?php if ($this->uri->segment(2) == "coffeeshop") {
-                                                echo 'active';
-                                            } ?>">
+                        <li class="nav-item <?php if ($this->uri->segment(1) == "coffeeshop") {
+                            echo 'active';
+                        } ?>">
                             <a href="<?php echo site_url('coffeeshop') ?>"><i class="fas fa-database"></i> Data Coffe Shop</a>
                         </li>
-                        <li class="nav-item <?php if ( $this->uri->segment(2) == "kriteria" ) {
+                        <li class="nav-item <?php if ( $this->uri->segment(1) == "kriteria" ) {
                             echo 'active';
-                            } ?>">
-                            <a href="<?php echo base_url().'index.php/admin/controller/kriteria'; ?>"><i class="fas fa-list-alt"></i> Kriteria</a>
+                        } ?>">
+                            <a href="<?php echo site_url('kriteria') ?>"><i class="fas fa-list-alt"></i> Kriteria</a>
                         </li>
                     </ul>
                 </div>
