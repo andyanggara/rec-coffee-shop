@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -58,7 +58,13 @@ $route['admin'] = 'admin/C_dashboard';
 $route['admin/(:any)'] = 'admin/C_dashboard/$1';
 
 $route['login'] = 'admin/C_login/login';
+$route['logout'] = 'admin/C_login/logout';
+$route['validation'] = 'admin/C_login/validation';
 
 $route['adminlist'] = 'admin/C_adminlist';
+$route['adminlist/(:any)'] = 'admin/C_adminlist/$1';
+$route['adminlist/(:any)/(:any)'] = 'admin/C_adminlist/$1/$2';
 
 $route['coffeeshop'] = 'admin/C_coffeeshop';
+$route['coffeeshop/(:any)'] = 'admin/C_coffeeshop/$1';
+$route['coffeeshop/(:any)/(:any)'] = 'admin/C_coffeeshop/$1/$2';
