@@ -68,3 +68,5 @@ $route['adminlist/(:any)/(:any)'] = 'admin/C_adminlist/$1/$2';
 $route['coffeeshop'] = 'admin/C_coffeeshop';
 $route['coffeeshop/(:any)'] = 'admin/C_coffeeshop/$1';
 $route['coffeeshop/(:any)/(:any)'] = 'admin/C_coffeeshop/$1/$2';
+
+$route['kriteria'] = 'admin/C_kriteria';
