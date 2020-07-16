@@ -5,11 +5,11 @@ $username = "";
 $password = "";
 $last_login = "";
 if ($content == "Edit") {
-    $id = $account->id;
-    $name = $account->name;
-    $username = $account->username;
-    $password = $account->password;
-    $last_login = $account->last_login;
+    $id = (isset($account->id) ? $account->id : 0);
+    $name = (isset($account->name) ? $account->name : '');
+    $username = (isset($account->username) ? $account->username : '');
+    $password = (isset($account->password) ? $account->password : '');
+    $last_login = (isset($account->last_login) ? $account->last_login : '');
 }
 ?>
 

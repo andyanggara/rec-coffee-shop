@@ -14,6 +14,7 @@ class C_dashboard extends CI_Controller
         }
         $this->load->model('m_dashboard', 'ref');
         $this->load->model('m_adminlist', 'refAdmin');
+        $this->load->model('m_coffeeshop', 'refCoffeeshop');
         $this->load->library('form_validation');
     }
 
@@ -21,7 +22,7 @@ class C_dashboard extends CI_Controller
     {
         $data['titlepage'] = "Dashboard";
         $data['page'] = "dashboard";
-        $data['count'] = (object) ['adminlist' => $this->refAdmin->count(), 'coffeeshop' => 10];
+        $data['count'] = (object) ['adminlist' => $this->refAdmin->count(), 'coffeeshop' => 10, 'coffeeshop' => $this->refCoffeeshop->count()];
         $this->load->view('admin/template', $data);
     }
 }

@@ -14,9 +14,6 @@ class C_adminlist extends CI_Controller
         }
         $this->load->model('m_adminlist', 'ref');
         $this->load->library('form_validation');
-        $this->data = array(
-            'titlepage' => 'Daftar Admin'
-        );
     }
 
     public function index()
@@ -40,10 +37,10 @@ class C_adminlist extends CI_Controller
         }
 
         $data = $this->data;
-        $data['adminlist'] = $this->ref->getAll();
 
+        $data['titlepage'] = "Tambah Admin";
         $data['page'] = "adminlist/form-admin";
-        $data['content'] = "Tambah";
+        $data['content'] = "Add";
         $this->load->view('admin/template', $data);
     }
 
@@ -62,11 +59,11 @@ class C_adminlist extends CI_Controller
         }
 
         $data = $this->data;
-        $data['adminlist'] = $this->ref->getAll();
 
         $data['account'] = $account->getById($id);
         if (!$data['account']) show_404();
 
+        $data['titlepage'] = "Edit Admin";
         $data['page'] = "adminlist/form-admin";
         $data['content'] = "Edit";
         $this->load->view('admin/template', $data);

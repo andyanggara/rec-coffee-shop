@@ -12,6 +12,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+
+    <style>
+        .row {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+        }
+    </style>
 </head>
 
 <body>

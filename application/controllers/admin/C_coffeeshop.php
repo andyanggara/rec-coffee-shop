@@ -14,9 +14,6 @@ class C_coffeeshop extends CI_Controller
         }
         $this->load->model('m_coffeeshop', 'ref');
         $this->load->library('form_validation');
-        $this->data = array(
-            'titlepage' => 'Daftar Coffee Shop'
-        );
     }
 
     public function index()
@@ -40,10 +37,10 @@ class C_coffeeshop extends CI_Controller
         }
 
         $data = $this->data;
-        $data['coffeeshop'] = $this->ref->getAll();
 
+        $data['titlepage'] = "Tambah Coffee Shop";
         $data['page'] = "coffeeshop/form-coffeeshop";
-        $data['content'] = "Tambah";
+        $data['content'] = "Add";
         $this->load->view('admin/template', $data);
     }
 
@@ -62,11 +59,11 @@ class C_coffeeshop extends CI_Controller
         }
 
         $data = $this->data;
-        $data['coffeeshop'] = $this->ref->getAll();
 
         $data['account'] = $account->getById($id);
         if (!$data['account']) show_404();
 
+        $data['titlepage'] = "Edit Coffee Shop";
         $data['page'] = "coffeeshop/form-coffeeshop";
         $data['content'] = "Edit";
         $this->load->view('admin/template', $data);

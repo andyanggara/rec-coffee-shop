@@ -5,11 +5,11 @@ $address = "";
 $flat_rate = "";
 $photo = "";
 if ($content == "Edit") {
-    $id = $account->id;
-    $name = $account->name;
-    $address = $account->address;
-    $flat_rate = $account->$flat_rate;
-    $photo = $account->photo;
+    $id = (isset($account->id) ? $account->id : 0);
+    $name = (isset($account->name) ? $account->name : '');
+    $address = (isset($account->address) ? $account->address : '');
+    $flat_rate = (isset($account->flat_rate) ? $account->flat_rate : 0);
+    $photo = (isset($account->photo) ? $account->photo : '');
 }
 ?>
 
@@ -21,13 +21,18 @@ if ($content == "Edit") {
         font-size: 80%;
         color: #dc3545;
     }
+
+    .img-preview {
+        width: 150px;
+        height: 150px;
+    }
 </style>
 
-<!-- Daftar Admin -->
+<!-- Daftar Coffee Shop -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800"><?= $content ?> Coffee Shop</h1>
 </div>
-<!-- /Daftar Admin -->
+<!-- /Daftar Coffee Shop -->
 
 <div class="app-main__inner">
     <div class="row">
@@ -76,9 +81,10 @@ if ($content == "Edit") {
                                 </div>
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label for="photo">Photo</label>
-                                <input type="file" id="photo" class="form-control" name="photo" placeholder="Photo" value="<?php echo $photo; ?>" accept="image/*">
-                                <img id="view_photo" src="" class="mt-3" />
+                                <label for="upload-photo">Photo</label>
+                                <input type="file" id="upload-photo" class="form-control" name="upload-photo" placeholder="Photo" accept="image/*" required>
+                                <input type="text" id="photo" class="form-control" name="photo" placeholder="Photo" hidden>
+                                <img id="view_photo" class="<?= $photo !== '' ? 'img-preview' : '' ?> mt-3" src="<?php echo $photo; ?>" />
                                 <br>
                                 <?php echo form_error('photo') ?>
                                 <div class="invalid-feedback">
@@ -119,17 +125,13 @@ if ($content == "Edit") {
             var reader = new FileReader();
 
             var images = $("#view_photo");
-            images.css({
-                "width": 150,
-                "height": 150
-            });
+            images.addClass("img-preview");
             reader.onload = function(e) {
                 if (input.files[0].size <= 2000000) {
                     images.show();
                     images.attr('src', e.target.result);
                     $('#invalid-images').hide();
-                    console.log('Image : ', input.files[0])
-                    console.log('Photo : ', $('#photo').val())
+                    $('#photo').val(e.target.result)
                 } else {
                     images.hide();
                     images.attr('src', null);
@@ -142,7 +144,7 @@ if ($content == "Edit") {
         }
     }
 
-    $("#photo").change(function() {
+    $("#upload-photo").change(function() {
         readURL(this);
     });
 </script>
