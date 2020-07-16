@@ -1,7 +1,8 @@
-#vh {
-	min-height: 88vh;
+body {
+	font-family: "Poppins", sans-serif;
+	background: #f8f9fc;
 }
 
-th {
-	text-align: center;
+#vh {
+	min-height: 88vh;
 }
