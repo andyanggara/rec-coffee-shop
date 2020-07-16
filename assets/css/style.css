@@ -6,3 +6,7 @@ body {
 #vh {
 	min-height: 88vh;
 }
+
+.btn-light {
+	background-color: #e0e0e0;
+}

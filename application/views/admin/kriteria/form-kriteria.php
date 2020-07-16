@@ -23,7 +23,7 @@ if ($content == "Edit") {
 <div class="app-main__inner">
     <div class="row">
         <div class="col-md-12">
-            <div class="main-card mb-3 card">
+            <div class="main-card mb-3 card shadow">
                 <div class="card-body">
                     <form class="needs-validation" action="" method="post" enctype="multipart/form-data" novalidate>
                         <div class="form-row">
@@ -82,6 +82,7 @@ if ($content == "Edit") {
                                 </div>
                             <?php }  ?>
                         </div>
+                        <a href="<?php echo site_url('kriteria') ?>" class="btn btn-light">Back</a>
                         <input class="btn btn-primary" type="submit" value="Submit form">
                     </form>
                 </div>

@@ -20,12 +20,11 @@
                     } ?>
                     <div class="card-body">
                         <div class="form-group validate-input">
-                            <input type="text" name="username" class="form-control" placeholder="Username">
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
                         </div>
                         <div class="form-group validate-input">
-                            <input type="password" name="password" class="form-control" placeholder="Password">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
                         </div>
-                        <!-- <a class="btn btn-primary btn-block" href="<?php echo site_url('admin') ?>">LOGIN</a> -->
                         <button class="btn btn-primary btn-block" type="submit">LOGIN</button>
                     </div>
                 </form>
