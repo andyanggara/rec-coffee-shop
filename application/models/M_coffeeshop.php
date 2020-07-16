@@ -52,10 +52,7 @@ class M_coffeeshop extends CI_Model
         $this->address = $post["address"];
         $this->flat_rate = $post["flat_rate"];
         $this->photo = $post["photo"];
-        // return $this->db->insert($this->table, $this);
-
-        var_dump($this);
-        die();
+        return $this->db->insert($this->table, $this);
     }
 
     public function getById($id)

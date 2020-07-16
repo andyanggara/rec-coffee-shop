@@ -70,3 +70,5 @@ $route['coffeeshop/(:any)'] = 'admin/C_coffeeshop/$1';
 $route['coffeeshop/(:any)/(:any)'] = 'admin/C_coffeeshop/$1/$2';
 
 $route['kriteria'] = 'admin/C_kriteria';
+$route['kriteria/(:any)'] = 'admin/C_kriteria/$1';
+$route['kriteria/(:any)/(:any)'] = 'admin/C_kriteria/$1/$2';

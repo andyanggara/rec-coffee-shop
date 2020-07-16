@@ -4,7 +4,7 @@
 
  <!-- Daftar Admin -->
  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800">Daftar Admin</h1>
+     <h1 class="h3 mb-0 text-gray-800">Admin List</h1>
  </div>
  <!-- /Daftar Admin -->
 
@@ -16,7 +16,7 @@
                  <div class="mb-3">
                      <div class="btn-actions-pane-left">
                          <div role="group" class="btn-group-sm btn-group">
-                             <a class="btn btn-primary" href="<?php echo site_url('adminlist/Add') ?>"><i class="fa fa-plus"></i> Tambah</a>
+                             <a class="btn btn-primary" href="<?php echo site_url('adminlist/Add') ?>"><i class="fa fa-plus"></i> Add</a>
                          </div>
                      </div>
                  </div>
@@ -74,7 +74,7 @@
                  <div class="modal-body">Select "Yes" below if you want to delete the admin data.</div>
                  <div class="modal-footer">
                      <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                     <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/adminlist/delete/<?php echo $admin->id; ?>">Yes</a>
+                     <a class="btn btn-danger" href="<?php echo base_url(); ?>adminlist/delete/<?php echo $admin->id; ?>">Yes</a>
                  </div>
              </div>
          </div>
