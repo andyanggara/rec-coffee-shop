@@ -17,27 +17,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light mb-4 shadow">
+    <nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light mb-4 shadow">
         <a class="navbar-brand" href="<?php echo site_url('') ?>">REKOMENDASI COFFEE SHOP</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo site_url('') ?>">HOME</a>
                 </li>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo site_url('rekomendasi') ?>">REKOMENDASI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo site_url('about') ?>">ABOUT</a>
+                </li>
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" id="vh">
         <?php include $page . '.php'; ?>
     </div>
+    <footer>
+        <div class="bg-light text-center py-3">© 2020 Copyright</div>
+    </footer>
 </body>
 
 </html>

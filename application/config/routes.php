@@ -53,6 +53,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 // User
 $route['default_controller'] = 'C_user';
 $route['detail'] = 'C_detail';
+$route['rekomendasi'] = 'C_rekomendasi';
+$route['about'] = 'C_about';
 
 $route['404_override'] = 'error404';
 $route['translate_uri_dashes'] = FALSE;
