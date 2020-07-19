@@ -29,7 +29,7 @@
                         <li class="nav-item <?php if ($this->uri->segment(1) == "perhitungan") {
                                                 echo 'active';
                                             } ?>">
-                            <a href="<?php echo site_url('perhitungan') ?>"><i class="fas fa-list-alt"></i> Perhitungan</a>
+                            <a href="<?php echo site_url('perhitungan') ?>"><i class="fas fa-calculator"></i> Perhitungan</a>
                         </li>
                     </ul>
                 </div>

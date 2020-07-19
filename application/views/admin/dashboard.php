@@ -38,7 +38,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $count->kriteria ?></div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-database fa-2x text-gray-300"></i>
+                        <i class="fas fa-list-alt fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $count->perhitungan ?></div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                        <i class="fas fa-star fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
