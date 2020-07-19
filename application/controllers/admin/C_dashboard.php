@@ -16,6 +16,7 @@ class C_dashboard extends CI_Controller
         $this->load->model('m_adminlist', 'refAdmin');
         $this->load->model('m_coffeeshop', 'refCoffeeshop');
         $this->load->model('m_kriteria', 'refKriteria');
+        $this->load->model('m_perhitungan', 'refPerhitungan');
         $this->load->library('form_validation');
     }
 
@@ -23,8 +24,7 @@ class C_dashboard extends CI_Controller
     {
         $data['titlepage'] = "Dashboard";
         $data['page'] = "dashboard";
-        $data['count'] = (object) ['adminlist' => $this->refAdmin->count(), 'coffeeshop' => 10, 'coffeeshop' => $this->refCoffeeshop->count(), 'kriteria' => $this->refKriteria->count()];
-        // $data['kriteria'] = $this->refKriteria->getValueWeight();
+        $data['count'] = (object) ['adminlist' => $this->refAdmin->count(), 'coffeeshop' => 10, 'coffeeshop' => $this->refCoffeeshop->count(), 'kriteria' => $this->refKriteria->count(), 'perhitungan' => $this->refPerhitungan->count()];
 
         $this->load->view('admin/template', $data);
     }

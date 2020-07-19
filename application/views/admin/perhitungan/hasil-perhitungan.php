@@ -1,8 +1,5 @@
  <?php
     defined('BASEPATH') or exit('No direct script access allowed');
-
-    // var_dump($ranking);
-    // die();
     ?>
 
  <style>

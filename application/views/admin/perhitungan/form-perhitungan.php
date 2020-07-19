@@ -11,13 +11,6 @@ if ($content == "Edit") {
 } else {
     $review = array_fill(0, $review_length, array('code' => '', 'value_weight' => ''));
 }
-// var_dump($account);
-// echo '</br>';
-// $account->review = explode(",", $account->review);
-// var_dump($account->review);
-// echo '</br>';
-// var_dump($coffeeshop);
-// echo '</br>';
 ?>
 
 <style>
