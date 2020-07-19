@@ -53,6 +53,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 // User
 $route['default_controller'] = 'C_user';
 $route['detail'] = 'C_detail';
+$route['detail/(:any)'] = 'C_detail/$1';
+$route['detail/(:any)/(:any)'] = 'C_detail/$1/$2';
 $route['rekomendasi'] = 'C_rekomendasi';
 $route['about'] = 'C_about';
 
