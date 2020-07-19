@@ -13,7 +13,7 @@ class C_user extends CI_Controller
     public function index()
     {
         $data['titlepage'] = "Home";
-        $data['page'] = "index";
+        $data['page'] = "home";
         $data['coffeeshopList'] = $this->ref->getAll();
         $this->load->view('template', $data);
     }
