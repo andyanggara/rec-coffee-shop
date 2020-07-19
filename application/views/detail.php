@@ -16,7 +16,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </tr>
                     <tr>
                         <th>Flat Rate</th>
-                        <td>coffeeshop_name</td>
+                        <td>flat_rate</td>
                     </tr>
                 </table>
             </div>
