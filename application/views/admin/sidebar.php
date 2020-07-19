@@ -7,24 +7,29 @@
 
                     <ul class="list-unstyled components">
                         <li class="nav-item <?php if ($this->uri->segment(1) == "admin") {
-                            echo 'active';
-                        } ?>">
+                                                echo 'active';
+                                            } ?>">
                             <a href="<?php echo site_url('admin') ?>"><i class="fas fa-home"></i> Dashboard</a>
                         </li>
                         <li class="nav-item <?php if ($this->uri->segment(1) == "adminlist") {
-                            echo 'active';
-                        } ?>">
+                                                echo 'active';
+                                            } ?>">
                             <a href="<?php echo site_url('adminlist') ?>"><i class="fas fa-user"></i> Admin</a>
                         </li>
                         <li class="nav-item <?php if ($this->uri->segment(1) == "coffeeshop") {
-                            echo 'active';
-                        } ?>">
+                                                echo 'active';
+                                            } ?>">
                             <a href="<?php echo site_url('coffeeshop') ?>"><i class="fas fa-database"></i> Data Coffe Shop</a>
                         </li>
-                        <li class="nav-item <?php if ( $this->uri->segment(1) == "kriteria" ) {
-                            echo 'active';
-                        } ?>">
+                        <li class="nav-item <?php if ($this->uri->segment(1) == "kriteria") {
+                                                echo 'active';
+                                            } ?>">
                             <a href="<?php echo site_url('kriteria') ?>"><i class="fas fa-list-alt"></i> Kriteria</a>
+                        </li>
+                        <li class="nav-item <?php if ($this->uri->segment(1) == "perhitungan") {
+                                                echo 'active';
+                                            } ?>">
+                            <a href="<?php echo site_url('perhitungan') ?>"><i class="fas fa-list-alt"></i> Perhitungan</a>
                         </li>
                     </ul>
                 </div>

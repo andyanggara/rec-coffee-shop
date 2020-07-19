@@ -10,8 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <?php $this->load->view('admin/head'); ?>
     <title><?= $titlepage ?></title>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href='<?php echo base_url(); ?>assets/css/dataTables.bootstrap4.min.css'>
 
     <style>
         .row {
@@ -45,9 +44,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 </html>
 
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dataTables.bootstrap4.min.js"></script>
 
 
 <script type="text/javascript">

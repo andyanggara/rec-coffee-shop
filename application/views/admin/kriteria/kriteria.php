@@ -28,7 +28,9 @@
                                  <tr>
                                      <th>No</th>
                                      <th>Name</th>
+                                     <th>Code</th>
                                      <th>Value Weight</th>
+                                     <th>Type</th>
                                      <th>Action</th>
                                  </tr>
                              </thead>
@@ -40,7 +42,9 @@
                                      <tr>
                                          <td class="text-center"><?php echo $no ?></td>
                                          <td><?php echo $kriteria->name ?></td>
+                                         <td><?php echo $kriteria->code ?></td>
                                          <td><?php echo $kriteria->value_weight ?></td>
+                                         <td><?php echo $kriteria->type === "0" ? 'Cost' : 'Benefit' ?></td>
                                          <td class="text-center"><a class="mb-2 mr-2 btn btn-warning" href="<?php echo base_url(); ?>kriteria/edit/<?php echo $kriteria->id; ?>">Edit</a>
                                              <a class="mb-2 mr-2 btn btn-danger" href="#deletekriteria<?php echo $kriteria->id; ?>" data-toggle="modal">Delete</a></td>
                                      </tr>

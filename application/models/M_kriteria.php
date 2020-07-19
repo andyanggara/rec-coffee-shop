@@ -43,10 +43,17 @@ class M_kriteria extends CI_Model
         $post = $this->input->post();
         $this->name = $post["name"];
         $this->value_weight = $post["value_weight"];
+        $this->type = $post["type"];
 
         $optionBody = $post['option'];
         $this->db->insert($this->table, $this);
         $cr_id = $this->db->insert_id();
+
+        $this->id = $cr_id;
+        $this->code = 'C' . $cr_id;
+
+        //Insert Code
+        $this->db->update($this->table, $this, array('id' => $cr_id));
 
         foreach ($optionBody as $option) {
             $option = array('cr_id' => $cr_id, 'name' => $option['name'], 'value_weight' => $option['value_weight']);
@@ -63,8 +70,10 @@ class M_kriteria extends CI_Model
     {
         $post = $this->input->post();
         $this->id = $post["id"];
+        $this->code = $post["code"];
         $this->name = $post["name"];
         $this->value_weight = $post["value_weight"];
+        $this->type = $post["type"];
 
         $this->db->update($this->table, $this, array('id' => $post['id']));
 
@@ -80,6 +89,11 @@ class M_kriteria extends CI_Model
         return $this->db->delete($this->table, array("id" => $id));
     }
 
+    public function getAllOption()
+    {
+        return $this->db->query("SELECT * FROM $this->opt_table")->result();
+    }
+
     public function getOptionByID($cr_id)
     {
         $this->db->select('*');
@@ -91,5 +105,19 @@ class M_kriteria extends CI_Model
     public function deleteOption($id)
     {
         return $this->db->delete($this->opt_table, array("id" => $id));
+    }
+
+    public function sumVW()
+    {
+        $this->db->select_sum('value_weight');
+        $this->db->from($this->table);
+        return $this->db->get()->row()->value_weight;
+    }
+
+    public function getValueWeight()
+    {
+        $this->db->select('code, value_weight');
+        $this->db->from($this->table);
+        return $this->db->get()->result();
     }
 }

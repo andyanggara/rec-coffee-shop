@@ -1,13 +1,17 @@
 <?php
 $option_length = 5;
 $id = "";
+$code = "";
 $name = "";
 $value_weight = "";
+$type = 1;
 
 if ($content == "Edit") {
     $id = (isset($account->id) ? $account->id : 0);
+    $code = (isset($account->code) ? $account->code : '');
     $name = (isset($account->name) ? $account->name : '');
     $value_weight = (isset($account->value_weight) ? $account->value_weight : '');
+    $type = (isset($account->type) ? $account->type : '');
     $option = (isset($option) ? $option : array_fill(0, $option_length, array('id' => '', 'cr_id' => '', 'name' => '', 'value_weight' => '')));
 } else {
     $option = array_fill(0, $option_length, array('id' => '', 'cr_id' => '', 'name' => '', 'value_weight' => ''));
@@ -35,6 +39,7 @@ if ($content == "Edit") {
 
                             <input type="hidden" name="content" value="<?php echo $content; ?>">
                             <input type="hidden" name="id" value="<?php echo $id; ?>">
+                            <input type="hidden" name="code" value="<?php echo $code; ?>">
 
                             <div class="col-md-12 mb-3">
                                 <label for="Name">Name</label>
@@ -53,6 +58,17 @@ if ($content == "Edit") {
                                 <?php echo form_error('value_weight') ?>
                                 <div class="invalid-feedback">
                                     Please fill in the value weight.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="type">Type</label>
+                                <select class="form-control" name="type">\
+                                    <option value="1" selected <?php if ($type == 1) echo 'selected'; ?>>Benefit</option>
+                                    <option value="0" <?php if ($type == 0) echo 'selected'; ?>>Cost</option>
+                                </select>
+                                <?php echo form_error('type') ?>
+                                <div class="invalid-feedback">
+                                    Please choose a type.
                                 </div>
                             </div>
                             <?php for ($i = 0; $i < 5; $i++) { ?>
