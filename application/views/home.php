@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 
 <div class="row mb-4">
-    <h4 class="col">REKOMENDASI</h4>
+    <h4 class="col">LIST COFFEE SHOP</h4>
 </div>
 <div class="row mb-4">
     <form class="form-inline my-2 my-lg-0 ml-auto">

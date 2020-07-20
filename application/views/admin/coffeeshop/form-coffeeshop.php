@@ -4,19 +4,13 @@ $name = "";
 $address = "";
 $flat_rate = "";
 $photo = "";
-$vector_s = 0;
-$vector_v = 0;
 if ($content == "Edit") {
     $id = (isset($account->id) ? $account->id : 0);
     $name = (isset($account->name) ? $account->name : '');
     $address = (isset($account->address) ? $account->address : '');
     $flat_rate = (isset($account->flat_rate) ? $account->flat_rate : 0);
     $photo = (isset($account->photo) ? $account->photo : '');
-    $vector_s = (isset($account->vector_s) ? $account->vector_s : 0);
-    $vector_v = (isset($account->vector_v) ? $account->vector_v : 0);
-}
-?>
-
+} ?>
 <style>
     #invalid-images {
         display: none;
@@ -30,11 +24,6 @@ if ($content == "Edit") {
         width: 150px;
         height: 150px;
     }
-
-    .invalid-input {
-        border-color: #dc3545 !important;
-        background-image: none !important;
-    }
 </style>
 
 <!-- Daftar Coffee Shop -->
@@ -42,24 +31,20 @@ if ($content == "Edit") {
     <h1 class="h3 mb-0 text-gray-800"><?= $content ?> Coffee Shop</h1>
 </div>
 <!-- /Daftar Coffee Shop -->
-
 <div class="app-main__inner">
     <div class="row">
         <div class="col-md-12">
-            <div class="main-card mb-3 card">
+            <div class="main-card mb-3 card shadow">
                 <div class="card-body">
-                    <form id="formCoffee" class="needs-validation" action="" method="post" enctype="multipart/form-data" novalidate>
+                    <form class="needs-validation" action="" method="post" enctype="multipart/form-data" novalidate>
                         <div class="form-row">
                             <?php if ($this->session->flashdata('success')) : ?>
                                 <div class="mb-2 mr-2 badge badge-success">
                                     <?php echo $this->session->flashdata('success'); ?>
                                 </div>
                             <?php endif; ?>
-
                             <input type="hidden" name="content" value="<?php echo $content; ?>">
                             <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="hidden" name="vector_s" value="<?php echo $vector_s; ?>">
-                            <input type="hidden" name="vector_v" value="<?php echo $vector_v; ?>">
 
                             <div class="col-md-12 mb-3">
                                 <label for="Name">Name</label>
@@ -93,8 +78,10 @@ if ($content == "Edit") {
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="upload-photo">Photo</label>
-                                <input type="file" id="upload-photo" class="form-control" name="upload-photo" placeholder="Photo">
-                                <input type="text" id="photo" class="form-control" name="photo" required hidden value="<?php echo $photo; ?>">
+                                <input type="file" id="upload-photo" class="form-control" name="upload-photo" placeholder="Photo" accept="image/*" required>
+                                <input type="text" id="photo" class="form-control" name="photo" placeholder="Photo" hidden>
+                                <img id="view_photo" class="<?= $photo !== '' ? 'img-preview' : '' ?> mt-3" src="<?php echo $photo; ?>" />
+                                <br>
                                 <?php echo form_error('photo') ?>
                                 <div class="invalid-feedback">
                                     Please choose a photo.
@@ -102,11 +89,10 @@ if ($content == "Edit") {
                                 <div id="invalid-images">
                                     Image size exceeds 2MB
                                 </div>
-                                <img id="view_photo" class="<?= $photo !== '' ? 'img-preview' : '' ?> mt-3" src="<?php echo $photo; ?>" />
-                                <br>
                             </div>
                         </div>
-                        <input id="submit" class="btn btn-primary" type="submit" value="Submit form">
+                        <a href="<?php echo site_url('coffeeshop') ?>" class="btn btn-light">Back</a>
+                        <input class="btn btn-primary" type="submit" value="Submit form">
                     </form>
                 </div>
             </div>
@@ -139,7 +125,6 @@ if ($content == "Edit") {
             images.addClass("img-preview");
             reader.onload = function(e) {
                 if (input.files[0].size <= 2000000) {
-                    // console.log('Input : ', input.files)
                     images.show();
                     images.attr('src', e.target.result);
                     $('#invalid-images').hide();
@@ -158,14 +143,5 @@ if ($content == "Edit") {
 
     $("#upload-photo").change(function() {
         readURL(this);
-    });
-
-    $("#submit").click(function() {
-        if (!$("#upload-photo").val()) {
-            console.log($("#upload-photo").val())
-            // $validator.showErrors(errors);
-            $("#upload-photo").addClass('invalid-input')
-            // $("#upload-photo").prop('invalid', true)
-        }
     });
 </script>
