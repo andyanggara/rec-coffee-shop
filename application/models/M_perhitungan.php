@@ -40,11 +40,7 @@ class M_perhitungan extends CI_Model
         $this->db->join('coffeeshop as c', 'c.id = p.coffeeshop_id', 'left');
         $this->db->order_by('p.id', 'asc');
         $query = $this->db->get();
-        if ($query->num_rows() != 0) {
-            return $query->result_array();
-        } else {
-            return false;
-        }
+        return $query->result_array();
     }
 
     public function count()
@@ -81,7 +77,13 @@ class M_perhitungan extends CI_Model
 
     public function delete($id)
     {
+        $review = $this->db->get_where($this->table, ["id" => $id])->row();
+        var_dump($review->coffeeshop_id);
         return $this->db->delete($this->table, array("id" => $id));
+        $update_data = array("vector_s" => 0, "vector_v" => 0);
+        $condition = array("id" => $review->coffeeshop_id);
+        $this->db->where($condition);
+        $this->db->update($this->coffee_table, $update_data);
     }
 
     public function calculateWP()
@@ -90,8 +92,8 @@ class M_perhitungan extends CI_Model
         $this->vector = $post["vector"];
         foreach ($this->vector as $vindex => $v) {
             $update_data = array("vector_s" => $v['vector_s'], "vector_v" => $v['vector_v']);
-            $condi = array("id" => $v['coffeeshop_id']);
-            $this->db->where($condi);
+            $condition = array("id" => $v['coffeeshop_id']);
+            $this->db->where($condition);
             $this->db->update($this->coffee_table, $update_data);
         }
     }

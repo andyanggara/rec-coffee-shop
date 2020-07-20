@@ -5,6 +5,7 @@ class M_kriteria extends CI_Model
 {
     private $table = "kriteria";
     private $opt_table = "kriteria_opt";
+    private $perhitungan_table = "perhitungan";
     public $id;
     public $name;
     public $value_weight;
@@ -49,15 +50,25 @@ class M_kriteria extends CI_Model
         $this->db->insert($this->table, $this);
         $cr_id = $this->db->insert_id();
 
-        $this->id = $cr_id;
-        $this->code = 'C' . $cr_id;
+        // $this->id = $cr_id;
+        // $this->code = 'C' . $cr_id;
 
-        //Insert Code
-        $this->db->update($this->table, $this, array('id' => $cr_id));
+        // // Insert Criteria Code
+        // $this->db->update($this->table, $this, array('id' => $cr_id));
 
+        // Create Criteria Option
         foreach ($optionBody as $option) {
             $option = array('cr_id' => $cr_id, 'name' => $option['name'], 'value_weight' => $option['value_weight']);
             $this->db->insert($this->opt_table, $option);
+        }
+
+        // Insert Criteria Value to Existing Calculation
+        $perhitungan = $this->db->query("SELECT * FROM $this->perhitungan_table")->result();
+        foreach ($perhitungan as $index => $review) {
+            $update_data = array("review" => $review->review . ',1');
+            $condition = array("id" => $review->id);
+            $this->db->where($condition);
+            $this->db->update($this->perhitungan_table, $update_data);
         }
     }
 
@@ -86,6 +97,27 @@ class M_kriteria extends CI_Model
 
     public function delete($id)
     {
+        // Get Id Index
+        $kriteria = $this->db->query("SELECT id FROM $this->table")->result();
+        $reviewIndex = '';
+        foreach ($kriteria as $index => $value) {
+            if ($value->id === $id) {
+                $reviewIndex = $index;
+            }
+        }
+
+        // Delete Criteria Value to Existing Calculation
+        $perhitungan = $this->db->query("SELECT * FROM $this->perhitungan_table")->result();
+        foreach ($perhitungan as $index => $review) {
+            $reviewArr = explode(',', $review->review);
+            array_splice($reviewArr, $reviewIndex, 1);
+            $reviewArr = implode(',', $reviewArr);
+
+            $update_data = array("review" => $reviewArr);
+            $condition = array("id" => $review->id);
+            $this->db->where($condition);
+            $this->db->update($this->perhitungan_table, $update_data);
+        }
         return $this->db->delete($this->table, array("id" => $id));
     }
 

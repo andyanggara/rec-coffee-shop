@@ -1,92 +1,171 @@
- <?php
-    defined('BASEPATH') or exit('No direct script access allowed');
-    ?>
+<?php
+$id = "";
+$name = "";
+$address = "";
+$flat_rate = "";
+$photo = "";
+$vector_s = 0;
+$vector_v = 0;
+if ($content == "Edit") {
+    $id = (isset($account->id) ? $account->id : 0);
+    $name = (isset($account->name) ? $account->name : '');
+    $address = (isset($account->address) ? $account->address : '');
+    $flat_rate = (isset($account->flat_rate) ? $account->flat_rate : 0);
+    $photo = (isset($account->photo) ? $account->photo : '');
+    $vector_s = (isset($account->vector_s) ? $account->vector_s : 0);
+    $vector_v = (isset($account->vector_v) ? $account->vector_v : 0);
+}
+?>
 
- <style>
-     .img-preview {
-         width: 150px;
-         height: 150px;
-     }
- </style>
+<style>
+    #invalid-images {
+        display: none;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 80%;
+        color: #dc3545;
+    }
 
- <!-- Daftar Coffee Shop -->
- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800">Coffee Shop List</h1>
- </div>
- <!-- /Daftar Coffee Shop -->
+    .img-preview {
+        width: 150px;
+        height: 150px;
+    }
 
- <!-- Tabel -->
- <div class="card shadow mb-4">
-     <div class="card-body">
-         <div class="table-responsive">
-             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                 <div class="mb-3">
-                     <div class="btn-actions-pane-left">
-                         <div role="group" class="btn-group-sm btn-group">
-                             <a class="btn btn-primary" href="<?php echo site_url('coffeeshop/Add') ?>"><i class="fa fa-plus"></i> Add</a>
-                         </div>
-                     </div>
-                 </div>
+    .invalid-input {
+        border-color: #dc3545 !important;
+        background-image: none !important;
+    }
+</style>
 
-                 <div class="d-block">
-                     <div class="table-responsive">
-                         <table class="mb-0 table table-bordered table-striped" id="datatable">
-                             <thead>
-                                 <tr>
-                                     <th>No</th>
-                                     <th>Name</th>
-                                     <th>Address</th>
-                                     <th>Flat Rate</th>
-                                     <th>Photo</th>
-                                     <th>Action</th>
-                                 </tr>
-                             </thead>
-                             <tbody>
-                                 <?php
-                                    $no = 1;
-                                    foreach ($coffeeshopList as $coffeeshop) {
-                                    ?>
-                                     <tr>
-                                         <td class="text-center"><?php echo $no ?></td>
-                                         <td><?php echo $coffeeshop->name ?></td>
-                                         <td><?php echo $coffeeshop->address ?></td>
-                                         <td class="text-right"><?php echo $coffeeshop->flat_rate ?></td>
-                                         <td class="text-center"><img class="img-preview" src="<?php echo $coffeeshop->photo ?>"></td>
-                                         <td class="text-center"><a class="mb-2 mr-2 btn btn-warning" href="<?php echo base_url(); ?>coffeeshop/edit/<?php echo $coffeeshop->id; ?>">Edit</a>
-                                             <a class="mb-2 mr-2 btn btn-danger" href="#deleteCoffeeShop<?php echo $coffeeshop->id; ?>" data-toggle="modal">Delete</a></td>
-                                     </tr>
-                                 <?php
-                                        $no++;
-                                    }
-                                    ?>
-                             </tbody>
-                         </table>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
- <!-- /Tabel -->
+<!-- Daftar Coffee Shop -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><?= $content ?> Coffee Shop</h1>
+</div>
+<!-- /Daftar Coffee Shop -->
 
- <!-- Modal delete Coffee Shop -->
- <?php foreach ($coffeeshopList as $coffeeshop) { ?>
-     <div id="deleteCoffeeShop<?php echo $coffeeshop->id; ?>" class="modal fade" role="dialog">
-         <div class="modal-dialog">
-             <div class="modal-content">
-                 <div class="modal-header">
-                     <h5 class="modal-title">Delete <?= $coffeeshop->name ?> ?</h5>
-                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                         <span aria-hidden="true">×</span>
-                     </button>
-                 </div>
-                 <div class="modal-body">Select "Yes" below if you want to delete the coffeeshop data.</div>
-                 <div class="modal-footer">
-                     <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                     <a class="btn btn-danger" href="<?php echo base_url(); ?>coffeeshop/delete/<?php echo $coffeeshop->id; ?>">Yes</a>
-                 </div>
-             </div>
-         </div>
-     </div>
- <?php } ?>
- <!-- /Modal delete Coffee Shop -->
+<div class="app-main__inner">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form id="formCoffee" class="needs-validation" action="" method="post" enctype="multipart/form-data" novalidate>
+                        <div class="form-row">
+                            <?php if ($this->session->flashdata('success')) : ?>
+                                <div class="mb-2 mr-2 badge badge-success">
+                                    <?php echo $this->session->flashdata('success'); ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <input type="hidden" name="content" value="<?php echo $content; ?>">
+                            <input type="hidden" name="id" value="<?php echo $id; ?>">
+                            <input type="hidden" name="vector_s" value="<?php echo $vector_s; ?>">
+                            <input type="hidden" name="vector_v" value="<?php echo $vector_v; ?>">
+
+                            <div class="col-md-12 mb-3">
+                                <label for="Name">Name</label>
+                                <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo $name; ?>" required maxlength="50">
+                                <?php echo form_error('name') ?>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please fill in the name.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="flat_rate">Flat Rate</label>
+                                <input type="number" class="form-control" name="flat_rate" placeholder="Flat Rate" value="<?php echo $flat_rate; ?>" required>
+                                <?php echo form_error('flat_rate') ?>
+                                <div class="invalid-feedback">
+                                    Please fill in the flat rate.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo $address; ?>" required maxlength="100">
+                                <?php echo form_error('address') ?>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please fill in the address.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="upload-photo">Photo</label>
+                                <input type="file" id="upload-photo" class="form-control" name="upload-photo" placeholder="Photo">
+                                <input type="text" id="photo" class="form-control" name="photo" required hidden value="<?php echo $photo; ?>">
+                                <?php echo form_error('photo') ?>
+                                <div class="invalid-feedback">
+                                    Please choose a photo.
+                                </div>
+                                <div id="invalid-images">
+                                    Image size exceeds 2MB
+                                </div>
+                                <img id="view_photo" class="<?= $photo !== '' ? 'img-preview' : '' ?> mt-3" src="<?php echo $photo; ?>" />
+                                <br>
+                            </div>
+                        </div>
+                        <input id="submit" class="btn btn-primary" type="submit" value="Submit form">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            var images = $("#view_photo");
+            images.addClass("img-preview");
+            reader.onload = function(e) {
+                if (input.files[0].size <= 2000000) {
+                    // console.log('Input : ', input.files)
+                    images.show();
+                    images.attr('src', e.target.result);
+                    $('#invalid-images').hide();
+                    $('#photo').val(e.target.result)
+                } else {
+                    images.hide();
+                    images.attr('src', null);
+                    $('#invalid-images').show();
+                    $("#images").val('');
+                }
+            }
+
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+    }
+
+    $("#upload-photo").change(function() {
+        readURL(this);
+    });
+
+    $("#submit").click(function() {
+        if (!$("#upload-photo").val()) {
+            console.log($("#upload-photo").val())
+            // $validator.showErrors(errors);
+            $("#upload-photo").addClass('invalid-input')
+            // $("#upload-photo").prop('invalid', true)
+        }
+    });
+</script>

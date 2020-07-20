@@ -59,5 +59,6 @@
              </div>
          </div>
      </div>
+     <a href="<?php echo site_url('perhitungan') ?>" class="btn btn-primary mt-3">Back</a>
  </div>
  <!-- /Tabel Vektor -->

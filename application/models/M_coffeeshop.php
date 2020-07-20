@@ -9,6 +9,8 @@ class M_coffeeshop extends CI_Model
     public $address;
     public $flat_rate;
     public $photo;
+    public $vector_s;
+    public $vector_v;
 
     public function rules()
     {
@@ -52,6 +54,9 @@ class M_coffeeshop extends CI_Model
         $this->address = $post["address"];
         $this->flat_rate = $post["flat_rate"];
         $this->photo = $post["photo"];
+        $this->vector_s = $post["vector_s"];
+        $this->vector_v = $post["vector_v"];
+
         return $this->db->insert($this->table, $this);
     }
 
@@ -68,6 +73,9 @@ class M_coffeeshop extends CI_Model
         $this->address = $post["address"];
         $this->flat_rate = $post["flat_rate"];
         $this->photo = $post["photo"];
+        $this->vector_s = $post["vector_s"];
+        $this->vector_v = $post["vector_v"];
+
         return $this->db->update($this->table, $this, array('id' => $post['id']));
     }
 

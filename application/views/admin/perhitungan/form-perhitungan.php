@@ -79,12 +79,13 @@ if ($content == "Edit") {
                             </div>
 
                             <?php
-                            foreach ($kriteriaList as $index => $kriteria) { ?>
+                            foreach ($kriteriaList as $index => $kriteria) {
+                                $no = $index + 1 ?>
                                 <div class="col-md-12 mb-3">
-                                    <label for="<?= $kriteria->code ?>"><?= $kriteria->name ?></label><br />
+                                    <label for="<?= 'C' . $no ?>"><?= $kriteria->name ?></label><br />
                                     <?php foreach ($kriteriaOption as $option) {
                                         if ($option->cr_id === $kriteria->id) { ?>
-                                            <input type="radio" name="review[<?= $kriteria->code ?>]" id="<?= $option->id ?>" value="<?= $option->value_weight ?>" <?php if ($option->value_weight === $review[$index] && $content === 'Edit') echo 'checked'; ?>> <?= $option->name ?><br />
+                                            <input type="radio" name="review[<?= 'C' . $no ?>]" id="<?= $option->id ?>" value="<?= $option->value_weight ?>" <?php if ($option->value_weight === $review[$index] && $content === 'Edit') echo 'checked'; ?>> <?= $option->name ?><br />
                                     <?php }
                                     } ?>
                                 </div>
