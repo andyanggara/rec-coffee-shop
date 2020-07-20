@@ -36,20 +36,21 @@
                              </thead>
                              <tbody>
                                  <?php
-                                    $no = 1;
-                                    foreach ($kriteriaList as $kriteria) {
+                                    // $no = 1;
+                                    foreach ($kriteriaList as $index => $kriteria) {
+                                        $no = $index + 1;
                                     ?>
                                      <tr>
                                          <td class="text-center"><?php echo $no ?></td>
                                          <td><?php echo $kriteria->name ?></td>
-                                         <td><?php echo $kriteria->code ?></td>
+                                         <td><?php echo 'C' . $no ?></td>
                                          <td><?php echo $kriteria->value_weight ?></td>
                                          <td><?php echo $kriteria->type === "0" ? 'Cost' : 'Benefit' ?></td>
                                          <td class="text-center"><a class="mb-2 mr-2 btn btn-warning" href="<?php echo base_url(); ?>kriteria/edit/<?php echo $kriteria->id; ?>">Edit</a>
                                              <a class="mb-2 mr-2 btn btn-danger" href="#deletekriteria<?php echo $kriteria->id; ?>" data-toggle="modal">Delete</a></td>
                                      </tr>
                                  <?php
-                                        $no++;
+                                        // $no++;
                                     }
                                     ?>
                              </tbody>

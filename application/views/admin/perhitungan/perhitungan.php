@@ -94,9 +94,12 @@
                                      <th>No</th>
                                      <th>Admin</th>
                                      <th>Coffee Shop</th>
-                                     <?php foreach ($kriteriaList as $kriteria) { ?>
-                                         <th><?= $kriteria->code ?></th>
-                                     <?php } ?>
+                                     <?php
+                                        foreach ($kriteriaList as $index => $kriteria) {
+                                            $no = $index + 1; ?>
+                                         <th><?= 'C' . $no ?></th>
+                                     <?php
+                                        } ?>
                                      <th>Action</th>
                                  </tr>
                              </thead>
@@ -135,121 +138,127 @@
  </div>
  <!-- /Tabel Penilaian -->
 
- <!-- Perhitungan -->
- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800">Perhitungan</h1>
- </div>
- <!-- /Perhitungan -->
+ <?php if ($penilaianList) { ?>
+     <!-- Perhitungan -->
+     <div class="d-sm-flex align-items-center justify-content-between mb-4">
+         <h1 class="h3 mb-0 text-gray-800">Perhitungan</h1>
+     </div>
+     <!-- /Perhitungan -->
 
- <!-- Tabel Normalisasi Bobot -->
- <div class="card shadow mb-4">
-     <div class="card-body">
-         <div class="table-responsive">
-             <div id="dataTable_wrapper1" class="dataTables_wrapper dt-bootstrap4">
-                 <div class="mb-3">
-                     <div class="btn-actions-pane-left">
-                         <div class="font-weight-bold">Normalisasi Bobot</div>
+     <!-- Tabel Normalisasi Bobot -->
+     <div class="card shadow mb-4">
+         <div class="card-body">
+             <div class="table-responsive">
+                 <div id="dataTable_wrapper1" class="dataTables_wrapper dt-bootstrap4">
+                     <div class="mb-3">
+                         <div class="btn-actions-pane-left">
+                             <div class="font-weight-bold">Normalisasi Bobot</div>
+                         </div>
                      </div>
-                 </div>
 
-                 <div class="d-block">
-                     <div class="table-responsive">
-                         <table class="mb-0 table table-bordered table-striped" id="datatable1">
-                             <thead>
-                                 <tr>
-                                     <th>No</th>
-                                     <th>Criteria</th>
-                                     <th>Value Weight</th>
-                                     <th>Normalize Value Weight</th>
-                                 </tr>
-                             </thead>
-                             <tbody>
-                                 <?php
-                                    $no = 1;
-                                    foreach ($kriteriaList as $kriteria) {
-                                    ?>
+                     <div class="d-block">
+                         <div class="table-responsive">
+                             <table class="mb-0 table table-bordered table-striped" id="datatable1">
+                                 <thead>
                                      <tr>
-                                         <td class="text-center"><?php echo $no ?></td>
-                                         <td><?php echo $kriteria->name ?></td>
-                                         <td class="text-center"><?php echo $kriteria->value_weight ?></td>
-                                         <td><?php echo $kriteria->normalize_value_weight ?></td>
+                                         <th>No</th>
+                                         <th>Criteria</th>
+                                         <th>Value Weight</th>
+                                         <th>Normalize Value Weight</th>
                                      </tr>
-                                 <?php
-                                        $no++;
-                                    }
-                                    ?>
-                             </tbody>
-                         </table>
+                                 </thead>
+                                 <tbody>
+                                     <?php
+                                        $no = 1;
+                                        foreach ($kriteriaList as $kriteria) {
+                                        ?>
+                                         <tr>
+                                             <td class="text-center"><?php echo $no ?></td>
+                                             <td><?php echo $kriteria->name ?></td>
+                                             <td class="text-center"><?php echo $kriteria->value_weight ?></td>
+                                             <td><?php echo $kriteria->normalize_value_weight ?></td>
+                                         </tr>
+                                     <?php
+                                            $no++;
+                                        }
+                                        ?>
+                                 </tbody>
+                             </table>
+                         </div>
                      </div>
                  </div>
              </div>
          </div>
      </div>
- </div>
- <!-- /Tabel Normalisasi Bobot -->
+     <!-- /Tabel Normalisasi Bobot -->
 
- <!-- Tabel Rata-rata Nilai -->
- <div class="card shadow mb-4">
-     <div class="card-body">
-         <div class="table-responsive">
-             <div id="dataTable_wrapper1" class="dataTables_wrapper dt-bootstrap4">
-                 <div class="mb-3">
-                     <div class="btn-actions-pane-left">
-                         <div class="font-weight-bold">Rata-Rata Nilai</div>
+     <!-- Tabel Rata-rata Nilai -->
+     <div class="card shadow mb-4">
+         <div class="card-body">
+             <div class="table-responsive">
+                 <div id="dataTable_wrapper1" class="dataTables_wrapper dt-bootstrap4">
+                     <div class="mb-3">
+                         <div class="btn-actions-pane-left">
+                             <div class="font-weight-bold">Rata-Rata Nilai</div>
+                         </div>
                      </div>
-                 </div>
 
-                 <div class="d-block">
-                     <div class="table-responsive">
-                         <table class="mb-0 table table-bordered table-striped" id="datatable1">
-                             <thead>
-                                 <tr>
-                                     <th>No</th>
-                                     <th>Coffee Shop</th>
-                                     <?php foreach ($kriteriaList as $kriteria) { ?>
-                                         <th class="text-center"><?= $kriteria->code ?></th>
-                                     <?php } ?>
-                                 </tr>
-                             </thead>
-                             <tbody>
-                                 <?php
-                                    $no = 1;
-                                    foreach ($averageValue as $average) {
-                                    ?>
+                     <div class="d-block">
+                         <div class="table-responsive">
+                             <table class="mb-0 table table-bordered table-striped" id="datatable1">
+                                 <thead>
                                      <tr>
-                                         <td class="text-center"><?php echo $no ?></td>
-                                         <td><?php echo $average["coffeeshop_name"] ?></td>
-
-                                         <?php
-                                            foreach ($average["review"] as $value) { ?>
-                                             <td class="text-center"><?= $value ?></td>
-                                         <?php }
-                                            ?>
+                                         <th>No</th>
+                                         <th>Coffee Shop</th>
+                                         <?php foreach ($kriteriaList as $index => $kriteria) {
+                                                $no = $index + 1; ?>
+                                             <th><?= 'C' . $no ?></th>
+                                         <?php } ?>
                                      </tr>
-                                 <?php
-                                        $no++;
-                                    }
-                                    ?>
-                             </tbody>
-                         </table>
+                                 </thead>
+                                 <tbody>
+                                     <?php
+                                        $no = 1;
+                                        foreach ($averageValue as $average) {
+                                        ?>
+                                         <tr>
+                                             <td class="text-center"><?php echo $no ?></td>
+                                             <td><?php echo $average["coffeeshop_name"] ?></td>
+
+                                             <?php
+                                                foreach ($average["review"] as $value) { ?>
+                                                 <td class="text-center"><?= $value ?></td>
+                                             <?php }
+                                                ?>
+                                         </tr>
+                                     <?php
+                                            $no++;
+                                        }
+                                        ?>
+                                 </tbody>
+                             </table>
+                         </div>
                      </div>
                  </div>
              </div>
          </div>
      </div>
- </div>
- <!-- /Tabel Rata-rata Nilai -->
+     <!-- /Tabel Rata-rata Nilai -->
 
- <!-- Perhitungan -->
- <div class="col-md-12 text-center">
-     <form class="needs-validation" action="" method="POST" enctype="multipart/form-data" novalidate>
-         <input type="hidden" name="content" value="Calculate">
-         <a href="<?php echo site_url('perhitungan/calculateWP') ?>" class="btn btn-light">Lihat Hasil</a>
-         <input class="btn btn-primary" type="submit" name="submit" value="Calculate">
-     </form>
- </div>
- <!-- /Perhitungan -->
-
+     <!-- Perhitungan -->
+     <div class="col-md-12 text-center">
+         <form class="needs-validation" action="" method="POST" enctype="multipart/form-data" novalidate>
+             <input type="hidden" name="content" value="Calculate">
+             <a href="<?php echo site_url('perhitungan/calculateWP') ?>" class="btn btn-light">Result</a>
+             <input class="btn btn-primary" type="submit" name="submit" value="Calculate">
+         </form>
+     </div>
+     <!-- /Perhitungan -->
+ <?php } else { ?>
+     <div class="col-sm-12 text-center mt-5">
+         <h6 class="mb-0 text-gray-800">Fitur Perhitungan Belum Tersedia</br>Silahkan Isi Penilaian Terlebih Dahulu</h6>
+     </div>
+ <?php } ?>
 
 
  <!-- Modal delete penilaian -->
