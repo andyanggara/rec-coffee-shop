@@ -50,12 +50,6 @@ class M_kriteria extends CI_Model
         $this->db->insert($this->table, $this);
         $cr_id = $this->db->insert_id();
 
-        // $this->id = $cr_id;
-        // $this->code = 'C' . $cr_id;
-
-        // // Insert Criteria Code
-        // $this->db->update($this->table, $this, array('id' => $cr_id));
-
         // Create Criteria Option
         foreach ($optionBody as $option) {
             $option = array('cr_id' => $cr_id, 'name' => $option['name'], 'value_weight' => $option['value_weight']);
@@ -81,7 +75,6 @@ class M_kriteria extends CI_Model
     {
         $post = $this->input->post();
         $this->id = $post["id"];
-        $this->code = $post["code"];
         $this->name = $post["name"];
         $this->value_weight = $post["value_weight"];
         $this->type = $post["type"];
