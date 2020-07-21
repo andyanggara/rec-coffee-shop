@@ -49,7 +49,7 @@ if (isset($_POST['search'])) {
 <script>
     var items = $(".paginate .product");
     var numItems = items.length;
-    var perPage = 10;
+    var perPage = 9;
     var totalPages = Math.ceil(numItems / perPage);
 
     items.slice(perPage).hide();
