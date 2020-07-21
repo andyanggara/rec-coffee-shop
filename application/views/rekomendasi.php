@@ -1,31 +1,37 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+
+// foreach ($coffeeshopList as $key => $value) {
+//     var_dump($value["name"]);
+//     echo '</br>';
+//     echo '</br>';
+// }
 ?>
 
 <div class="row mb-4">
     <h4 class="col">REKOMENDASI</h4>
 </div>
-<div class="row mb-4">
+<!-- <div class="row mb-4">
     <form class="form-inline my-2 my-lg-0 ml-auto">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-</div>
+</div> -->
 <div class="row">
     <?php foreach ($coffeeshopList as $row) { ?>
         <div class="col-sm-4 mb-4">
             <div class="card shadow">
-                <img class="card-img-top" src="<?php echo $row->photo; ?>" alt="Card image cap">
+                <img class="card-img-top" src="<?php echo $row["photo"]; ?>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $row->name; ?></h5>
-                    <p class="card-text"><?php echo $row->flat_rate; ?></p>
-                    <a href="<?php echo base_url(); ?>detail/coffee/<?php echo $row->id ?>" class="btn btn-primary">Detail</a>
+                    <h5 class="card-title"><?php echo $row["name"]; ?></h5>
+                    <p class="card-text"><?php echo 'Rp. ' . number_format($row["flat_rate"], 2, ',', '.'); ?></p>
+                    <a href="<?php echo base_url(); ?>detail/coffee/<?php echo $row["id"] ?>" class="btn btn-primary">Detail</a>
                 </div>
             </div>
         </div>
     <?php } ?>
 </div>
-<div class="row justify-content-center mb-4">
+<!-- <div class="row justify-content-center mb-4">
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
@@ -35,4 +41,4 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
     </nav>
-</div>
+</div> -->

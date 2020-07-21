@@ -83,4 +83,9 @@ class M_coffeeshop extends CI_Model
     {
         return $this->db->delete($this->table, array("id" => $id));
     }
+
+    public function search($searchValue)
+    {
+        return $this->db->query("SELECT * FROM $this->table WHERE lower(name) like lower('%$searchValue%')")->result();
+    }
 }

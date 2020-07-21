@@ -16,7 +16,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </tr>
             <tr>
                 <th>Flat Rate</th>
-                <td><?php echo $coffeeshopById->flat_rate; ?></td>
+                <td><?php echo 'Rp. ' . number_format($coffeeshopById->flat_rate, 2, ',', '.'); ?></td>
             </tr>
         </table>
     </div>

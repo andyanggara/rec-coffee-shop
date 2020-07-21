@@ -104,7 +104,7 @@ class M_perhitungan extends CI_Model
         $this->db->from($this->coffee_table);
         $this->db->order_by('vector_v', 'desc');
         $this->db->order_by('name', 'asc');
-        $this->db->limit(5, 0);
+        $this->db->limit(10, 0);
         $query = $this->db->get();
         if ($query->num_rows() != 0) {
             return $query->result_array();
