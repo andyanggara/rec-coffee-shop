@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <div class="card shadow mb-4">
-    <div class="card-header">DATA</div>
+    <div class="card-header font-weight-bold"><?= strtoupper($coffeeshopById->name) ?></div>
     <img class="card-img-top px-4 pt-4" src="<?php echo $coffeeshopById->photo; ?>" alt="Card image cap">
     <div class="card-body">
         <table class="table table-bordered">
