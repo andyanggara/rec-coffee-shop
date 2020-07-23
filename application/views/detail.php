@@ -18,6 +18,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <th>Flat Rate</th>
                 <td><?php echo 'Rp. ' . number_format($coffeeshopById->flat_rate, 2, ',', '.'); ?></td>
             </tr>
+            <tr>
+                <th>Open In</th>
+                <td><?php echo $coffeeshopById->open_in; ?></td>
+            </tr>
+            <tr>
+                <th>Close In</th>
+                <td><?php echo $coffeeshopById->close_in; ?></td>
+            </tr>
         </table>
     </div>
 </div>

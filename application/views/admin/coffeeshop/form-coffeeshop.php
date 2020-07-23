@@ -6,6 +6,8 @@ $flat_rate = "";
 $photo = "";
 $vector_s = 0;
 $vector_v = 0;
+$open_in = '';
+$close_in = '';
 if ($content == "Edit") {
     $id = (isset($account->id) ? $account->id : 0);
     $name = (isset($account->name) ? $account->name : '');
@@ -14,6 +16,8 @@ if ($content == "Edit") {
     $photo = (isset($account->photo) ? $account->photo : '');
     $vector_s = (isset($account->vector_s) ? $account->vector_s : 0);
     $vector_v = (isset($account->vector_v) ? $account->vector_v : 0);
+    $open_in = (isset($account->open_in) ? $account->open_in : 0);
+    $close_in = (isset($account->close_in) ? $account->close_in : 0);
 }
 ?>
 
@@ -78,6 +82,22 @@ if ($content == "Edit") {
                                 <?php echo form_error('flat_rate') ?>
                                 <div class="invalid-feedback">
                                     Please fill in the flat rate.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="open_in">Open In</label>
+                                <input type="time" class="form-control" name="open_in" placeholder="Open In" value="<?php echo $open_in; ?>" required>
+                                <?php echo form_error('open_in') ?>
+                                <div class="invalid-feedback">
+                                    Please fill in the open in.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="close_in">Close In</label>
+                                <input type="time" class="form-control" name="close_in" placeholder="Close In" value="<?php echo $close_in; ?>" required>
+                                <?php echo form_error('close_in') ?>
+                                <div class="invalid-feedback">
+                                    Please fill in the close in.
                                 </div>
                             </div>
                             <div class="col-md-12 mb-3">

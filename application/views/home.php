@@ -29,6 +29,7 @@ if (isset($_POST['search'])) {
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row->name; ?></h5>
                         <p class="card-text"><?php echo 'Rp. ' . number_format($row->flat_rate, 2, ',', '.'); ?></p>
+                        <p class="card-text"><?php echo 'Open : '.$row->open_in . '-' . $row->close_in; ?></p>
                         <a href="<?php echo base_url(); ?>detail/coffee/<?php echo $row->id ?>" class="btn btn-primary">Detail</a>
                     </div>
                 </div>

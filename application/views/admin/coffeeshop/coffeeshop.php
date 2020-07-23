@@ -37,6 +37,8 @@
                                      <th>Name</th>
                                      <th>Address</th>
                                      <th>Flat Rate</th>
+                                     <th>Open In</th>
+                                     <th>Close In</th>
                                      <th>Photo</th>
                                      <th>Action</th>
                                  </tr>
@@ -51,6 +53,8 @@
                                          <td><?php echo $coffeeshop->name ?></td>
                                          <td><?php echo $coffeeshop->address ?></td>
                                          <td class="text-right"><?php echo $coffeeshop->flat_rate ?></td>
+                                         <td><?php echo $coffeeshop->open_in ?></td>
+                                         <td><?php echo $coffeeshop->close_in ?></td>
                                          <td class="text-center"><img class="img-preview" src="<?php echo $coffeeshop->photo ?>"></td>
                                          <td class="text-center"><a class="mb-2 mr-2 btn btn-warning" href="<?php echo base_url(); ?>coffeeshop/edit/<?php echo $coffeeshop->id; ?>">Edit</a>
                                              <a class="mb-2 mr-2 btn btn-danger" href="#deleteCoffeeShop<?php echo $coffeeshop->id; ?>" data-toggle="modal">Delete</a></td>

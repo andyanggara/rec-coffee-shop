@@ -11,6 +11,8 @@ class M_coffeeshop extends CI_Model
     public $photo;
     public $vector_s;
     public $vector_v;
+    public $open_in;
+    public $close_in;
 
     public function rules()
     {
@@ -56,6 +58,8 @@ class M_coffeeshop extends CI_Model
         $this->photo = $post["photo"];
         $this->vector_s = $post["vector_s"];
         $this->vector_v = $post["vector_v"];
+        $this->open_in = $post["open_in"];
+        $this->close_in = $post["close_in"];
 
         return $this->db->insert($this->table, $this);
     }
@@ -75,6 +79,8 @@ class M_coffeeshop extends CI_Model
         $this->photo = $post["photo"];
         $this->vector_s = $post["vector_s"];
         $this->vector_v = $post["vector_v"];
+        $this->open_in = $post["open_in"];
+        $this->close_in = $post["close_in"];
 
         return $this->db->update($this->table, $this, array('id' => $post['id']));
     }
