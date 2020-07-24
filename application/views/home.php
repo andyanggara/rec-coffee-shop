@@ -25,7 +25,7 @@ if (isset($_POST['search'])) {
         <?php foreach ($coffeeshopList as $row) { ?>
             <div class="col-sm-4 mb-4 product">
                 <div class="card shadow">
-                    <img class="card-img-top" src="<?php echo $row->photo; ?>" alt="Card image cap">
+                    <img class="card-img-top thumbnail-img" src="<?php echo $row->photo; ?>" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row->name; ?></h5>
                         <p class="card-text"><?php echo 'Rp. ' . number_format($row->flat_rate, 2, ',', '.'); ?></p>

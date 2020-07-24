@@ -2,13 +2,6 @@
     defined('BASEPATH') or exit('No direct script access allowed');
     ?>
 
- <style>
-     .img-preview {
-         width: 150px;
-         height: 150px;
-     }
- </style>
-
  <!-- Daftar Hasil Perhitungan -->
  <div class="d-sm-flex align-items-center justify-content-between mb-4">
      <h1 class="h3 mb-0 text-gray-800">Hasil Perhitungan Weighted Product</h1>

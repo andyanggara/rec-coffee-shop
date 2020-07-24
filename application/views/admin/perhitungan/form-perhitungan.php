@@ -13,21 +13,6 @@ if ($content == "Edit") {
 }
 ?>
 
-<style>
-    #invalid-images {
-        display: none;
-        width: 100%;
-        margin-top: 0.25rem;
-        font-size: 80%;
-        color: #dc3545;
-    }
-
-    .img-preview {
-        width: 150px;
-        height: 150px;
-    }
-</style>
-
 <!-- Daftar Penilaian -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800"><?= $content ?> Penilaian</h1>

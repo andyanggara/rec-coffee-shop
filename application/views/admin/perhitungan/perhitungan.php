@@ -60,13 +60,6 @@
     }
     ?>
 
- <style>
-     .img-preview {
-         width: 150px;
-         height: 150px;
-     }
- </style>
-
  <!-- Penilaian -->
  <div class="d-sm-flex align-items-center justify-content-between mb-4">
      <h1 class="h3 mb-0 text-gray-800">Penilaian</h1>
