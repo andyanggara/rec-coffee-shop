@@ -12,6 +12,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url('assets/css/all.css'); ?>"/>
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>"/>
     <script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/popper.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
     <title><?= $titlepage ?></title>
 </head>
