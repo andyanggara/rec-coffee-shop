@@ -4,6 +4,7 @@ $name = "";
 $address = "";
 $flat_rate = "";
 $photo = "";
+$review_rate = "";
 $vector_s = 0;
 $vector_v = 0;
 $open_in = '';
@@ -14,6 +15,7 @@ if ($content == "Edit") {
     $address = (isset($account->address) ? $account->address : '');
     $flat_rate = (isset($account->flat_rate) ? $account->flat_rate : 0);
     $photo = (isset($account->photo) ? $account->photo : '');
+    $review_rate = (isset($account->review_rate) ? $account->review_rate : '');
     $vector_s = (isset($account->vector_s) ? $account->vector_s : 0);
     $vector_v = (isset($account->vector_v) ? $account->vector_v : 0);
     $open_in = (isset($account->open_in) ? $account->open_in : 0);
@@ -42,6 +44,7 @@ if ($content == "Edit") {
 
                             <input type="hidden" name="content" value="<?php echo $content; ?>">
                             <input type="hidden" name="id" value="<?php echo $id; ?>">
+                            <input type="hidden" name="review_rate" value="<?php echo $review_rate; ?>">
                             <input type="hidden" name="vector_s" value="<?php echo $vector_s; ?>">
                             <input type="hidden" name="vector_v" value="<?php echo $vector_v; ?>">
 

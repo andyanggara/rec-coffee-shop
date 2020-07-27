@@ -54,6 +54,7 @@
 
     // Calculate
     $_POST['vector'] = $vector_v;
+    $_POST['review_rate'] = $averageValue;
     if (isset($_POST['submit'])) {
         $this->ref->calculateWP();
         redirect('perhitungan/calculateWP');

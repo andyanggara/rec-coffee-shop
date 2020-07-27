@@ -90,8 +90,9 @@ class M_perhitungan extends CI_Model
     {
         $post = $this->input->post();
         $this->vector = $post["vector"];
+        $this->review_rate = $post["review_rate"];
         foreach ($this->vector as $vindex => $v) {
-            $update_data = array("vector_s" => $v['vector_s'], "vector_v" => $v['vector_v']);
+            $update_data = array("review_rate" => implode(',', $this->review_rate[$vindex]['review']), "vector_s" => $v['vector_s'], "vector_v" => $v['vector_v']);
             $condition = array("id" => $v['coffeeshop_id']);
             $this->db->where($condition);
             $this->db->update($this->coffee_table, $update_data);
@@ -105,6 +106,20 @@ class M_perhitungan extends CI_Model
         $this->db->order_by('vector_v', 'desc');
         $this->db->order_by('name', 'asc');
         $this->db->limit(10, 0);
+        $query = $this->db->get();
+        if ($query->num_rows() != 0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
+
+    public function getSort()
+    {
+        $this->db->select('*');
+        $this->db->from($this->coffee_table);
+        $condition = '(review_rate != "")';
+        $this->db->where($condition);
         $query = $this->db->get();
         if ($query->num_rows() != 0) {
             return $query->result_array();

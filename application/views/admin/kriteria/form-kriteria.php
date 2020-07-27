@@ -62,7 +62,7 @@ if ($content == "Edit") {
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="type">Type</label>
-                                <select class="form-control" name="type">\
+                                <select class="form-control" name="type">
                                     <option value="1" selected <?php if ($type == 1) echo 'selected'; ?>>Benefit</option>
                                     <option value="0" <?php if ($type == 0) echo 'selected'; ?>>Cost</option>
                                 </select>

@@ -15,19 +15,7 @@ if (isset($_POST['search'])) {
     <h4 class="col">LIST COFFEE SHOP</h4>
 </div>
 <div class="row mb-4">
-    <div class="col-sm-12 col-md-6">
-        <div class="dropdown">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Filter
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-6">
+    <div class="col-sm-12 col-md-12">
         <form class="form-inline my-2 my-lg-0 float-md-right" action="" method="post" enctype="multipart/form-data" novalidate>
             <input id="searchValue" name="searchValue" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" value="<?= $searchValue ?>">
             <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search" value="Search">
@@ -43,7 +31,7 @@ if (isset($_POST['search'])) {
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row->name; ?></h5>
                         <p class="card-text"><?php echo 'Rp. ' . number_format($row->flat_rate, 2, ',', '.'); ?></p>
-                        <p class="card-text"><?php echo 'Open : '.$row->open_in . '-' . $row->close_in; ?></p>
+                        <p class="card-text"><?php echo 'Open : ' . $row->open_in . '-' . $row->close_in; ?></p>
                         <a href="<?php echo base_url(); ?>detail/coffee/<?php echo $row->id ?>" class="btn btn-primary">Detail</a>
                     </div>
                 </div>

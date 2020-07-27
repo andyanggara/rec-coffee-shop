@@ -9,6 +9,7 @@ class M_coffeeshop extends CI_Model
     public $address;
     public $flat_rate;
     public $photo;
+    public $review_rate;
     public $vector_s;
     public $vector_v;
     public $open_in;
@@ -56,6 +57,7 @@ class M_coffeeshop extends CI_Model
         $this->address = $post["address"];
         $this->flat_rate = $post["flat_rate"];
         $this->photo = $post["photo"];
+        $this->review_rate = $post["review_rate"];
         $this->vector_s = $post["vector_s"];
         $this->vector_v = $post["vector_v"];
         $this->open_in = $post["open_in"];
@@ -77,6 +79,7 @@ class M_coffeeshop extends CI_Model
         $this->address = $post["address"];
         $this->flat_rate = $post["flat_rate"];
         $this->photo = $post["photo"];
+        $this->review_rate = $post["review_rate"];
         $this->vector_s = $post["vector_s"];
         $this->vector_v = $post["vector_v"];
         $this->open_in = $post["open_in"];
